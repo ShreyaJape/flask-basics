@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Task Details{% endblock %}
+
+{% block content %}
+{% if task %}
+<div class="card">
+    <h2>{{ task.title }}</h2>
+
+    <p><strong>Status:</strong> {{ task.status }}</p>
+    <p><strong>Priority:</strong> {{ task.priority }}</p>
+
+    {% if task.status != 'Completed' %}
+        <a href="/complete/{{ task.id }}" class="btn">Mark as Completed</a>
+    {% else %}
+        <span class="status completed">Already Completed</span>
+    {% endif %}
+</div>
+{% else %}
+<div class="card">
+    <h2>Task Not Found</h2>
+</div>
+{% endif %}
+{% endblock %}

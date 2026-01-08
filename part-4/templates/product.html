@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 50px auto;
+            background-color: #f4f6f8;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2b6cb0; }
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #38a169;
+        }
+        .error {
+            color: red;
+            font-size: 18px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/links">URL Builder</a>
+            <a href="/product/1">Product</a>
+            <a href="/category/electronics/product/1">Electronics Product</a>
+        </nav>
+
+<div class="card">
+    {% if product %}
+        <h1>{{ product.name }}</h1>
+        <p class="price">Price: ₹{{ product.price }}</p>
+    {% else %}
+        <p class="error">❌ Product with ID {{ product_id }} not found.</p>
+    {% endif %}
+
+    <a href="/">← Back to Home</a>
+</div>
+
+</body>
+</html>

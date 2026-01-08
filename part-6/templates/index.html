@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Home | To-Do App{% endblock %}
+
+{% block content %}
+
+<!-- App Intro -->
+<div class="card">
+    <h2>👋 Welcome to Your To-Do App</h2>
+    <p>
+        This app helps you organize your daily work efficiently.
+        You can add tasks, track progress, and mark tasks as completed.
+    </p>
+
+    <a href="/add" class="btn">➕ Add New Task</a>
+</div>
+
+<!-- Task Overview -->
+<div class="card">
+    <h2>📋 Your Tasks</h2>
+
+    {% if tasks %}
+        {% for task in tasks %}
+        <div style="
+            border: 1px solid #c660d1;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        ">
+            <div>
+                <h3 style="margin: 0 0 8px 0;">{{ task.title }}</h3>
+
+                {% if task.status == 'Completed' %}
+                    <span class="status completed">Completed</span>
+                {% else %}
+                    <span class="status pending">{{ task.status }}</span>
+                {% endif %}
+
+                <p style="margin: 6px 0 0 0;">
+                    Priority: <strong>{{ task.priority }}</strong>
+                </p>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <a href="/task/{{ task.id }}" class="btn btn-secondary">View</a>
+
+                {% if task.status != 'Completed' %}
+                    <a href="/complete/{{ task.id }}" class="btn">Complete</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No tasks added yet. Start by adding a new task!</p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -55,6 +55,45 @@ def show_links():
     }
     return render_template('links.html', links=links)
 
+@app.route('/product/<int:product_id>')
+def product_page(product_id):
+    # Products dictionary (simulating database)
+    products = {
+        1: {"name": "Laptop", "price": 55000},
+        2: {"name": "Smartphone", "price": 25000},
+        3: {"name": "Headphones", "price": 3000},
+    }
+
+    product = products.get(product_id)  # returns None if not found
+    return render_template('product.html', product=product, product_id=product_id)
+
+@app.route('/category/<category_name>/product/<int:product_id>')
+def category_product(category_name, product_id):
+    # Sample product data (normally from DB)
+    products = {
+        'electronics': {
+            1: {'name': 'Laptop', 'price': 65000},
+            2: {'name': 'Mobile', 'price': 30000}
+        },
+        'books': {
+            1: {'name': 'Python Programming', 'price': 500},
+            2: {'name': 'Flask Guide', 'price': 400}
+        }
+    }
+
+    category = products.get(category_name)
+    product = None
+
+    if category:
+        product = category.get(product_id)
+
+    return render_template(
+        'category_product.html',
+        category_name=category_name,
+        product_id=product_id,
+        product=product
+    )
+
 
 if __name__ == '__main__':
     app.run(debug=True)

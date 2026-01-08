@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Online Examination System{% endblock %}
+
+{% block content %}
+
+<style>
+.exam-container {
+    display: grid;
+    gap: 20px;
+}
+
+.exam-card {
+    border-radius: 10px;
+    padding: 25px;
+    background: #f9fafb;
+    border-left: 6px solid #4f46e5;
+}
+
+.exam-card h3 {
+    margin-bottom: 10px;
+    color: #1f2937;
+}
+
+.exam-card ul {
+    margin-left: 20px;
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.badge-success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-info {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.badge-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+</style>
+
+<div class="card">
+    <h2>Online Examination System</h2>
+    <p>This page demonstrates the UI flow of an Online Exam Management System.</p>
+</div>
+
+<div class="exam-container">
+
+    <!-- Schedule Exam -->
+    <div class="exam-card">
+        <h3>📅 Schedule Exam</h3>
+        <p>Admin schedules exams with date and duration.</p>
+        <ul>
+            <li><strong>Exam Name:</strong> Python Programming</li>
+            <li><strong>Date:</strong> 25 Jan 2026</li>
+            <li><strong>Duration:</strong> 60 Minutes</li>
+            <li><strong>Total Marks:</strong> 100</li>
+        </ul>
+        <span class="badge badge-info">Admin Panel</span>
+    </div>
+
+    <!-- Attend Exam -->
+    <div class="exam-card">
+        <h3>📝 Attend Exam</h3>
+        <p>Students attend the exam online.</p>
+
+        <p><strong>Question:</strong> What is Flask?</p>
+        <ul>
+            <li>✔ A Python Web Framework</li>
+            <li>A Database</li>
+            <li>An Operating System</li>
+        </ul>
+
+        <span class="badge badge-warning">Student Panel</span>
+    </div>
+
+    <!-- Result -->
+    <div class="exam-card">
+        <h3>📊 Exam Result</h3>
+        <p>Results are generated automatically after submission.</p>
+
+        <ul>
+            <li><strong>Student:</strong> Shreya Jape</li>
+            <li><strong>Score:</strong> 85%</li>
+            <li><strong>Status:</strong> Passed</li>
+        </ul>
+
+        <span class="badge badge-success">Result Published</span>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -14,14 +14,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    student_name = "Alex"
+    student_name = "Shreya"
     return render_template('index.html', name=student_name)  # Pass variable to template as {{ name }}
 
 
 @app.route('/profile')
 def profile():
     user_data = {
-        'name': 'Sarah',
+        'name': 'Shreyaa',
         'age': 22,
         'course': 'Web Development',
         'is_enrolled': True
@@ -48,7 +48,17 @@ def projects():
     ]
     return render_template('projects.html', projects=project_list)
 
-
+@app.route('/grades')
+def grades():
+    # Dictionary of subjects and grades
+    grades_data = {
+        "Mathematics": "A",
+        "Physics": "B+",
+        "Chemistry": "A-",
+        "English": "A",
+        "Computer Science": "A+"
+    }
+    return render_template('grades.html', grades=grades_data)
 if __name__ == '__main__':
     app.run(debug=True)
 

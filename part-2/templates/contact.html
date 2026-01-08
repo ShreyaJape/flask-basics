@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Flask Templates</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            background-color: #007bff;
+            padding: 15px 0;
+            border-radius: 8px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+            transform: scale(1.1);
+        }
+
+        /* Headings */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        /* Cards for contact info */
+        .card {
+            background-color: #f7f9fc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid #007bff;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        ul li a {
+            color: #007bff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        ul li a:hover {
+            color: #0056b3;
+        }
+
+        /* Form */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.02);
+        }
+
+        /* Footer link */
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #007bff;
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            color: #0056b3;
+        }
+
+        /* Responsive */
+        @media(max-width: 600px){
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+
+        <h1>Get in Touch</h1>
+        <p>If you’d like to connect, feel free to reach out using any of the methods below. I’d love to hear from you!</p>
+
+        <!-- Contact Info Cards -->
+        <div class="card">
+            <h2>Contact Details</h2>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:shreya@example.com">shreya@example.com</a></li>
+                <li><strong>Phone:</strong> +91 12345 67890</li>
+                <li><strong>Location:</strong> Pune, India</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Connect Online</h2>
+            <ul>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shreya-jape" target="_blank">linkedin.com/in/shreya-jape</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/shreya-jape" target="_blank">github.com/shreya-jape</a></li>
+                <li><strong>Twitter:</strong> <a href="https://twitter.com/shreya-jape" target="_blank">@shreya-jape</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Message Me Directly</h2>
+            <p>You can also send me a message using this simple form:</p>
+            <form action="/send_message" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <a href="/" class="back-home">← Back to Home</a>
+    </div>
+</body>
+</html>

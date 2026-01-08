@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog - {{ info.name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 40px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        .post {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 20px 0;
+        }
+        .post h2 {
+            color: #2d3748;
+        }
+        .date {
+            font-size: 14px;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
+    </nav>
+
+    <h1>My Blog</h1>
+    <p>Sharing my learning journey and experiences.</p>
+
+    {% for blog in blogs %}
+        <div class="post">
+            <h2>{{ blog.title }}</h2>
+            <p class="date">{{ blog.date }}</p>
+            <p><strong>{{ blog.summary }}</strong></p>
+            <p>{{ blog.content }}</p>
+        </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

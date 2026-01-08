@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f7;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: #2d3748;
+        }
+
+        .category {
+            background: #edf2f7;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-box {
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f7fafc;
+        }
+
+        .price {
+            font-size: 18px;
+            color: #38a169;
+            font-weight: bold;
+        }
+
+        .not-found {
+            color: #e53e3e;
+            font-weight: bold;
+        }
+
+        .footer-link {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/links">URL Builder</a>
+    </nav>
+
+    <h1>Product Information</h1>
+
+    <div class="category">
+        Category: {{ category_name | title }}
+    </div>
+
+    {% if product %}
+        <div class="product-box">
+            <p><strong>Product ID:</strong> {{ product_id }}</p>
+            <p><strong>Product Name:</strong> {{ product.name }}</p>
+            <p class="price">Price: ₹{{ product.price }}</p>
+            <p>This product belongs to the <strong>{{ category_name }}</strong> category.</p>
+        </div>
+    {% else %}
+        <p class="not-found">
+            ❌ The requested product does not exist in this category.
+        </p>
+    {% endif %}
+
+    <a class="footer-link" href="/">← Back to Home</a>
+
+</div>
+
+</body>
+</html>

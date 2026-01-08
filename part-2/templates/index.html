@@ -10,15 +10,15 @@
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color: #9de2ee;
         }
         .container {
-            background: white;
+            background: rgb(233, 236, 237);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        h1 {
+        h1, h2 {
             color: #333;
         }
         nav {
@@ -26,17 +26,28 @@
         }
         nav a {
             margin-right: 15px;
-            color: #007bff;
+            color: #7fd4bd;
             text-decoration: none;
         }
         nav a:hover {
             text-decoration: underline;
         }
         .highlight {
-            background-color: #e7f3ff;
+            background-color: #b6e2e7;
             padding: 15px;
             border-radius: 5px;
-            border-left: 4px solid #007bff;
+            border-left: 4px solid #5a9adf;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #79c8d1;
+        }
+        ul li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -46,6 +57,8 @@
         <nav>
             <a href="/">Home</a>
             <a href="/about">About</a>
+            <a href="/contact">contact</a>
+            
         </nav>
 
         <h1>Welcome to Flask Templates!</h1>
@@ -69,8 +82,39 @@
             <li><strong>Separation of Concerns:</strong> Python handles logic, HTML handles presentation</li>
             <li><strong>Easier to Maintain:</strong> Edit HTML without touching Python code</li>
             <li><strong>Reusability:</strong> Same template can be used with different data</li>
-            <li><strong>Jinja2 Power:</strong> We can add Python-like logic to HTML (next part!)</li>
+            <li><strong>Jinja2 Power:</strong> Add Python-like logic directly in HTML</li>
+        </ul>
+
+        <h2>Features of Flask</h2>
+        <ul>
+            <li>Lightweight and Minimalistic framework</li>
+            <li>Built-in development server and debugger</li>
+            <li>Supports secure cookies for client-side sessions</li>
+            <li>Easy integration with databases like SQLite, MySQL, and PostgreSQL</li>
+            <li>Flexible routing system for building web applications</li>
+        </ul>
+
+        <h2>How to Run This Project</h2>
+        <ol>
+            <li>Make sure you have Python installed</li>
+            <li>Create a virtual environment: <code>python -m venv venv</code></li>
+            <li>Activate the environment: <code>source venv/bin/activate</code> (Linux/Mac) or <code>venv\Scripts\activate</code> (Windows)</li>
+            <li>Install Flask: <code>pip install flask</code></li>
+            <li>Run the app: <code>python app.py</code></li>
+            <li>Open your browser and visit <code>http://localhost:5000</code></li>
+        </ol>
+
+        <h2>Tips for Beginners</h2>
+        <ul>
+            <li>Keep your templates in the <code>templates/</code> folder</li>
+            <li>Use <code>url_for()</code> to generate links dynamically</li>
+            <li>Use Jinja2 loops and conditionals to avoid repetitive HTML</li>
+            <li>Keep CSS in <code>static/</code> folder for better organization</li>
         </ul>
     </div>
+
+    <footer>
+        &copy; 2026 Flask Templates Tutorial | Created by Shreya Jape
+    </footer>
 </body>
 </html>
